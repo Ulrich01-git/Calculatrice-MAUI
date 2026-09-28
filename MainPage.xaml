@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculatrice.MainPage"
+             BackgroundColor="#12121A">
+
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="26" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="#2A2A3C" />
+            <Setter Property="CornerRadius" Value="22" />
+            <Setter Property="Margin" Value="4" />
+        </Style>
+        <Style TargetType="Button" Class="fn">
+            <Setter Property="TextColor" Value="#7CF5C8" />
+        </Style>
+        <Style TargetType="Button" Class="op">
+            <Setter Property="BackgroundColor" Value="#7C5CFF" />
+        </Style>
+        <Style TargetType="Button" Class="eq">
+            <Setter Property="BackgroundColor" Value="#FF6B9D" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="2*,5*" Padding="16" RowSpacing="12">
+
+        <Border Grid.Row="0" BackgroundColor="#1C1C2B"
+                StrokeShape="RoundRectangle 28" Stroke="Transparent"
+                Padding="20,12">
+            <VerticalStackLayout VerticalOptions="End" Spacing="4">
+                <HorizontalStackLayout Spacing="8">
+                    <Label Text="Calculatrice" TextColor="#7C5CFF"
+                           FontSize="14" FontAttributes="Bold" />
+                </HorizontalStackLayout>
+                <ScrollView Orientation="Horizontal" HorizontalOptions="End">
+                    <Label x:Name="OperationLabel" Text=""
+                           TextColor="#9A9AB5" FontSize="22" />
+                </ScrollView>
+                <Label x:Name="ResultLabel" Text="0" TextColor="White"
+                       FontSize="56" FontAttributes="Bold"
+                       HorizontalTextAlignment="End" LineBreakMode="NoWrap" />
+            </VerticalStackLayout>
+        </Border>
+
+        <Grid Grid.Row="1" RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*,*">
+            <Button Text="C" StyleClass="fn" Grid.Row="0" Grid.Column="0" Clicked="OnClear" />
+            <Button Text="⌫" StyleClass="fn" Grid.Row="0" Grid.Column="1" Clicked="OnBackspace" />
+            <Button Text="%" StyleClass="fn" Grid.Row="0" Grid.Column="2" Clicked="OnPercent" />
+            <Button Text="÷" StyleClass="op" Grid.Row="0" Grid.Column="3" Clicked="OnOperator" />
+
+            <Button Text="7" Grid.Row="1" Grid.Column="0" Clicked="OnDigit" />
+            <Button Text="8" Grid.Row="1" Grid.Column="1" Clicked="OnDigit" />
+            <Button Text="9" Grid.Row="1" Grid.Column="2" Clicked="OnDigit" />
+            <Button Text="×" StyleClass="op" Grid.Row="1" Grid.Column="3" Clicked="OnOperator" />
+
+            <Button Text="4" Grid.Row="2" Grid.Column="0" Clicked="OnDigit" />
+            <Button Text="5" Grid.Row="2" Grid.Column="1" Clicked="OnDigit" />
+            <Button Text="6" Grid.Row="2" Grid.Column="2" Clicked="OnDigit" />
+            <Button Text="−" StyleClass="op" Grid.Row="2" Grid.Column="3" Clicked="OnOperator" />
+
+            <Button Text="1" Grid.Row="3" Grid.Column="0" Clicked="OnDigit" />
+            <Button Text="2" Grid.Row="3" Grid.Column="1" Clicked="OnDigit" />
+            <Button Text="3" Grid.Row="3" Grid.Column="2" Clicked="OnDigit" />
+            <Button Text="+" StyleClass="op" Grid.Row="3" Grid.Column="3" Clicked="OnOperator" />
+
+            <Button Text="±" StyleClass="fn" Grid.Row="4" Grid.Column="0" Clicked="OnSign" />
+            <Button Text="0" Grid.Row="4" Grid.Column="1" Clicked="OnDigit" />
+            <Button Text="." Grid.Row="4" Grid.Column="2" Clicked="OnDecimal" />
+            <Button Text="=" StyleClass="eq" Grid.Row="4" Grid.Column="3" Clicked="OnEquals" />
+        </Grid>
+    </Grid>
+</ContentPage>
